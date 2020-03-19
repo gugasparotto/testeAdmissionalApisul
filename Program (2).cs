@@ -21,8 +21,7 @@ namespace TesteGus
 
     class Program
     {
-        // [0,0,1,1,4,0,1,0,2]
-        // [{1,0},{2,3}]
+        
         /// <summary> Deve retornar uma List contendo o(s) andar(es) menos utilizado(s). </summary> 
         public static List<int> andarMenosUtilizado(List<Entrys> items)
         {
@@ -77,7 +76,7 @@ namespace TesteGus
             foreach (char element in elevadorMaisFrequentado)
             {
                 Console.WriteLine(element);
-                //Console.WriteLine($"Element #{count}: {element}");
+                
             }
             return elevadorMaisFrequentado;
         }
@@ -128,8 +127,7 @@ namespace TesteGus
             Console.WriteLine("Periodo elevador mais utilizado:");
             foreach (char element in maiorFluxoElevadores)
             {
-                Console.WriteLine(element);
-                //Console.WriteLine($"Element #{count}: {element}");
+                Console.WriteLine(element
             }
             return maiorFluxoElevadores;
         }
@@ -154,7 +152,6 @@ namespace TesteGus
             foreach (char element in elevadorMenosFrequentado)
             {
                 Console.WriteLine(element);
-                //Console.WriteLine($"Element #{count}: {element}");
             }
             return elevadorMenosFrequentado;
         }
@@ -254,7 +251,6 @@ namespace TesteGus
             foreach (char element in periodoMaiorFluxoElevadores)
             {
                 Console.WriteLine(element);
-                //Console.WriteLine($"Element #{count}: {element}");
             }
             return periodoMaiorFluxoElevadores;
         }
@@ -372,54 +368,7 @@ namespace TesteGus
                 string json = r.ReadToEnd();
                 List<Entrys> items = JsonConvert.DeserializeObject<List<Entrys>>(json);
                 int[] andares = new int[16];
-               /* foreach (Entrys element in items)
-                {
-                    andares[element.andar]++;
-                    //Console.WriteLine($"Element #{count}: {element}");
-                }
-                {   //Menos utilizados
-                    int minAndar = andares[0];
-                    for (int i = 0; i < 16; i++)
-                    {
-                        if (minAndar > andares[i])
-                            minAndar = andares[i];
-                        Console.WriteLine("O andar " + i + " esta com: " + andares[i]);
-                    }
-                    var andaresMenosUtilizados = new List<int>();
-                    for (int i = 0; i < 16; i++)
-                    {
-                        if (minAndar == andares[i])
-                            andaresMenosUtilizados.Add(i);
-                    }
-                    Console.WriteLine("Andares menos utilizados:");
-                    foreach (int element in andaresMenosUtilizados)
-                    {
-                        Console.WriteLine(element);
-                        //Console.WriteLine($"Element #{count}: {element}");
-                    }
-                }
-
-                { //Mais Utilizados
-
-                    int maxAndar = andares[0];
-                    for (int i = 0; i < 16; i++)
-                    {
-                        if (maxAndar < andares[i])
-                            maxAndar = andares[i];
-                    }
-                    var andaresMaisUtilizados = new List<int>();
-                    for (int i = 0; i < 16; i++)
-                    {
-                        if (maxAndar == andares[i])
-                            andaresMaisUtilizados.Add(i);
-                    }
-                    Console.WriteLine("Andares mais utilizados:");
-                    foreach (int element in andaresMaisUtilizados)
-                    {
-                        Console.WriteLine(element);
-                        //Console.WriteLine($"Element #{count}: {element}");
-                    }
-                }*/
+              
                 {// Maior frequencia por andar
                     var dictionary = new Dictionary<char, Dados>();
                     foreach (Entrys element in items)
@@ -452,23 +401,7 @@ namespace TesteGus
 
                     }
 
-                    /*  if(dictionary.Count > 0)
-                      {
-                          int maiorFreq = 0;
-                          foreach (KeyValuePair<char, Dados> entry in dictionary)
-                          {
-                              if (maiorFreq < entry.Value.numDeUtilizacao)
-                                  maiorFreq = entry.Value.numDeUtilizacao;
-                          }
-
-                          var elevadoresMaisUtilizados = new List<char>();
-                          foreach (KeyValuePair<char, Dados> entry in dictionary)
-                          {
-                              if (maiorFreq == entry.Value.numDeUtilizacao)
-                                  elevadoresMaisUtilizados.Add(entry.Key);
-                          }
-
-                      }*/
+                   
 
                     andarMenosUtilizado(items);
                     elevadorMaisFrequentado(dictionary);
